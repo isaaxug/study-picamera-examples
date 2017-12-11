@@ -1,0 +1,13 @@
+{
+  "name": "pifeed",
+  "version": "",
+  "description": "",
+  "main": "main.py",
+  "author": "",
+  "license": "",
+  "language":"python",
+  "scripts": {
+	"start": "python camera/main.py"
+  },
+  "dependency": null
+}

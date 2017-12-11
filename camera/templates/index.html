@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Raspberry Pi Camera</title>
+	<style>
+	  body {
+		color: white;
+		background-color: #000; 
+		text-align: center;
+	  }
+	</style>
+  </head>
+  <body>
+	<h2>Picamera feed</h2>
+    <img id="bg" src="{{ url_for('video_feed') }}">
+  </body>
+</html>
