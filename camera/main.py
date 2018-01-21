@@ -5,8 +5,6 @@ from processor.motion_detector import MotionDetector as VideoCamera
 import time
 import threading
 
-# video_camera = SimpleStreamer(flip=False)
-# video_camera = PedestrianDetector(flip=False)
 video_camera = VideoCamera(flip=False)
 
 
