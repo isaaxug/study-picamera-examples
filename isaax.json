@@ -7,7 +7,7 @@
   "license": "",
   "language":"python",
   "scripts": {
-	"start": "python -u camera/main.py"
+	"start": "python3 -u camera/main.py"
   },
   "dependency": null
 }
