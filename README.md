@@ -3,22 +3,32 @@ A collection of picamera example based on OpenCV
 
 # requirements
 
-* python 2.7
-* OpenCV 2.4
+* python 2.7, 3.4, 3.5 or 3.6
+* OpenCV 2.4 or 3.x
 
-# installation
+# dependencies
 
-## install isaax agent.
+If you use desktop version of Raspbian, you may need to install following packages.
 
 ```
-$ wget https://isaaxartifacts.blob.core.windows.net/agent/v0.7.1/isaax-agent_v0.7.1_linux_armv7.tar.gz
-$ sudo mkdir /opt/isaax-agent/
-$ sudo tar xvzf isaax-agent_v0.5.6_linux_armv7.tar.gz -C /opt/
+sudo apt update
+sudo apt -y upgrade
+sudo apt update
+sudo apt install -y build-essential cmake pkg-config
+sudo apt install -y libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+sudo apt install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+sudo apt install -y libxvidcore-dev libx264-dev
+sudo apt install -y libgtk2.0-dev libgtk-3-dev
+sudo apt install -y libatlas-base-dev gfortran
+sudo apt install -y libqtgui4 libqt4-test
+sudo apt install -y libilmbase12 libopenexr22 libgstreamer1.0-dev
+sudo apt install -y python3-dev python3-pip
+sudo pip3 install numpy opencv-python picamera[array] flask imutils
 ```
 
-## register a device
+# getting started
 
-1. Create an [isaax](https://isaax.io) account
-2. Create a project
-3. Generate a project token and copy one
-4. Login to Raspberry Pi and run `sudo /opt/isaax-agent/isaax-agent --token <project token> install`
+1. Clone this repository on your Raspberry Pi
+2. Go to the directory
+3. Run `python3 camera/main.py`
+4. Open Chrome browser with `localhost:5000` from your local workstation
