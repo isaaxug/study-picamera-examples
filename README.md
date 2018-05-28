@@ -23,7 +23,7 @@ sudo apt install -y libatlas-base-dev gfortran
 sudo apt install -y libqtgui4 libqt4-test
 sudo apt install -y libilmbase12 libopenexr22 libgstreamer1.0-dev
 sudo apt install -y python3-dev python3-pip
-sudo pip3 install numpy opencv-python picamera[array] flask imutils
+sudo pip3 install numpy opencv-python picamera[array] flask imutils pyzbar
 ```
 
 # getting started
