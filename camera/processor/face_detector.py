@@ -13,10 +13,8 @@ class FaceDetector(object):
         self.flip = flip
         time.sleep(2.0)
 
-        self.argvs = sys.argv
-        self.face_cascade = cv2.CascadeClassifier('camera/processor/model/haarcascades/haarcascade_frontalface_default.xml')
-        if len(self.argvs) >= 2 and "eyes" in self.argvs:
-            self.eye_cascade = cv2.CascadeClassifier('camera/processor/model/haarcascades/haarcascade_eye.xml')
+        #opencvの顔分類機(CascadeClassifier)をインスタンス化する
+        #opencvの目分類機(CascadeClassifier)をインスタンス化する
 
     def __del__(self):
         self.vs.stop()
@@ -33,15 +31,11 @@ class FaceDetector(object):
         return jpeg.tobytes()
 
     def process_image(self, frame):
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        faces = self.face_cascade.detectMultiScale(gray, 1.3, 3)
-        for (x,y,w,h) in faces:
-            cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
-            if len(self.argvs) >= 2 and "eyes" in self.argvs:
-                roi_gray = gray[y:y+h, x:x+w]
-                roi_color = frame[y:y+h, x:x+w]
-                eyes = self.eye_cascade.detectMultiScale(roi_gray)
-                for (ex,ey,ew,eh) in eyes:
-                    cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
-
-        return frame
+        #opencvでframe(カラー画像)をグレースケールに変換
+        #上記でグレースケールに変換したものをインスタンス化した顔分類機のdetectMultiScaleで処理し、顔の部分だけを切り出す
+        #切り出した顔の座標配列をcv2.rectangleを使ってframe上に描画する
+            #グレースケールから顔の座標を取り出す
+            #frameから顔の座標を取り出す
+            #グレースケールから取り出した顔の座標をインスタンス化した目分類機のdetectMultiScaleで処理し、目の部分だけを取り出す
+                #切り出した目の座標配列をcv2.rectangleを使い、frameから取り出した顔の上に描画する
+        #frameを返却する
