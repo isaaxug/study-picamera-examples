@@ -37,3 +37,4 @@ class FaceDetector(object):
         # 顔の位置を描画する
 
         # frameを戻り値として返す
+        return frame
