@@ -1,11 +1,9 @@
 from __future__ import print_function
 from imutils.video.pivideostream import PiVideoStream
-from imutils.object_detection import non_max_suppression
 import imutils
 import time
 import numpy as np
 import cv2
-import sys
 
 class FaceDetector(object):
     def __init__(self, flip = True):
