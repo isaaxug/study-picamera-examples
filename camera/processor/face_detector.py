@@ -13,8 +13,7 @@ class FaceDetector(object):
         self.flip = flip
         time.sleep(2.0)
 
-        #opencvの顔分類機(CascadeClassifier)をインスタンス化する
-        #opencvの目分類機(CascadeClassifier)をインスタンス化する
+        #opencvの顔分類器(CascadeClassifier)をインスタンス化する
 
     def __del__(self):
         self.vs.stop()
@@ -32,10 +31,7 @@ class FaceDetector(object):
 
     def process_image(self, frame):
         #opencvでframe(カラー画像)をグレースケールに変換
-        #上記でグレースケールに変換したものをインスタンス化した顔分類機のdetectMultiScaleで処理し、顔の部分だけを切り出す
+        #上記でグレースケールに変換したものをインスタンス化した顔分類器のdetectMultiScaleで処理し、顔の部分だけを切り出す
         #切り出した顔の座標配列をcv2.rectangleを使ってframe上に描画する
-            #グレースケールから顔の座標を取り出す
-            #frameから顔の座標を取り出す
-            #グレースケールから取り出した顔の座標をインスタンス化した目分類機のdetectMultiScaleで処理し、目の部分だけを取り出す
-                #切り出した目の座標配列をcv2.rectangleを使い、frameから取り出した顔の上に描画する
+
         #frameを返却する
