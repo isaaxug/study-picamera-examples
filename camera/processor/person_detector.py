@@ -8,7 +8,7 @@ import numpy as np
 import cv2
 
 
-net = cv2.dnn.readNetFromCaffe('/home/pi/models/MobileNetSSD_deploy.prototxt.txt',
+net = cv2.dnn.readNetFromCaffe('/home/pi/models/MobileNetSSD_deploy.prototxt',
         '/home/pi/models/MobileNetSSD_deploy.caffemodel')
 
 
@@ -39,7 +39,7 @@ class PersonDetector(object):
         net.setInput(blob)
         detections = net.forward()
 
-        for i in np.arrange(0, detections.shpe[2]):
+        for i in np.arange(0, detections.shape[2]):
             confidence = detections[0, 0, i, 2]
 
             if confidence < 0.2:
