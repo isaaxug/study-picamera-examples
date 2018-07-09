@@ -38,8 +38,6 @@ class PersonDetector(object):
         blob = cv2.dnn.blobFromImage(frame, 0.007843, (300, 300), 127.5)
         net.setInput(blob)
         detections = net.forward()
-        # 人数初期化
-        persons = 0
 
         for i in np.arange(0, detections.shape[2]):
             confidence = detections[0, 0, i, 2]
@@ -57,8 +55,5 @@ class PersonDetector(object):
             cv2.rectangle(frame, (startX, startY), (endX, endY), (0, 255, 0), 2)
             y = startY - 15 if startY - 15 > 15 else startY + 15
             cv2.putText(frame, label, (startX, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
-            # 人数を加算
-            persons += 1
 
-        cv2.putText(frame, '{} persons'.format(persons), (0,0),  cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
         return frame
