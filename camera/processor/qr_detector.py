@@ -8,7 +8,7 @@ from pyzbar import pyzbar
 
 class QRDetector(object):
     def __init__(self, flip = False):
-        self.vs = PiVideoStream(resolution=(800, 608)).start()
+        self.vs = PiVideoStream(resolution=(400, 304), framerate=3).start()
         self.flip = flip
         time.sleep(2.0)
 
@@ -35,7 +35,7 @@ class QRDetector(object):
         if len(decoded_objs) > 0:
             detected = True
 
-        cv2.putText(frame, 'Detected: {}'.format(detected), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0))
+        cv2.putText(frame, 'Detected: {}'.format(detected), (15, 30), cv2.FONT_HERSHEY_DUPLEX, 0.8, (0, 255, 0), 1)
 
         return frame
 
