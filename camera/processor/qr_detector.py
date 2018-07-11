@@ -27,12 +27,34 @@ class QRDetector(object):
         return jpeg.tobytes()
         
     def process_image(self, frame):
-        pass
+        decoded_objs = self.decode(frame)
+        # 認識したQRコードの位置を描画する
+        # frame = self.draw_positions(frame, decoded_objs)
+
+        detected = False 
+        if len(decoded_objs) > 0:
+            detected = True
+
+        cv2.putText(frame, 'Detected: {}'.format(detected), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0))
+
+        return frame
 
     def decode(self, frame):
-        pass
+        decoded_objs = pyzbar.decode(frame, scan_locations=True)
+        for obj in decoded_objs:
+            print(datetime.now().strftime('%H:%M:%S.%f'))
+            print('Type: ', obj.type)
+            print('Data: ', obj.data)
 
-    def draw(self, frame, decoded_objs):
-        pass
-    
+        return decoded_objs
 
+    def draw_positions(self, frame, decoded_objs):
+        for obj in decoded_objs:
+            left, top, width, height = obj.rect
+            frame = cv2.rectangle(frame,
+                                  (left, top),
+                                  (left + width, height + top),
+                                  (0, 0, 255), 2)
+            data = obj.data.decode('utf-8')
+
+        return frame
