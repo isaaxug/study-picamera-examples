@@ -54,7 +54,7 @@ class QRDetector(object):
             frame = cv2.rectangle(frame,
                                   (left, top),
                                   (left + width, height + top),
-                                  (0, 0, 255), 2)
+                                  (0, 255, 0), 2)
             data = obj.data.decode('utf-8')
 
         return frame
