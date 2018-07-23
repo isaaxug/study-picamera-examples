@@ -8,7 +8,7 @@ import cv2
 
 class MotionDetector(object):
     def __init__(self, flip = True):
-        self.vs = PiVideoStream(resolution=(800, 608)).start()
+        self.vs = PiVideoStream(resolution=(400, 304), framerate=5).start()
         self.flip = flip
         time.sleep(2.0)
 
