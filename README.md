@@ -28,7 +28,8 @@ sudo pip3 install numpy opencv-python picamera[array] flask imutils pyzbar
 
 # getting started
 
-1. Clone this repository on your Raspberry Pi
-2. Go to the directory
-3. Run `python3 camera/main.py`
-4. Open Chrome browser with `localhost:5000` from your local workstation
+1. Enable PiCamera `sudo raspi-config nonint do_camera 0`
+2. Clone this repository on your Raspberry Pi
+3. Go to the directory
+4. Run `python3 camera/main.py`
+5. Open Chrome browser with `localhost:5000` from your local workstation
